@@ -30,6 +30,7 @@ namespace AngularJS__Member_Registration.DAL
             try
             {
                 this.entities.Members.Add(model);
+                this.entities.SaveChanges();
             }
             catch(Exception ex)
             {
@@ -44,6 +45,24 @@ namespace AngularJS__Member_Registration.DAL
         {
             bool status = false;
 
+            try
+            {
+                Member tempMember = this.entities.Members.Where(w => w.Id == model.Id).FirstOrDefault<Member>();
+                if(tempMember != null)
+                {
+                    tempMember.Firstname = model.Firstname;
+                    tempMember.Lastname = model.Lastname;
+                    tempMember.Age = model.Age;
+                    tempMember.Gender = model.Gender;
+                    this.entities.SaveChanges();
+                    status = true;
+                    this.entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
 
             return status;
         }

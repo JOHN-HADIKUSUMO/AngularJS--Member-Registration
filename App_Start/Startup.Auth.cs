@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace AngularJS__Member_Registration
+namespace AngularJS__Member_Registration.App_Start
 {
     public partial class Startup
     {

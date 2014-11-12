@@ -2,32 +2,51 @@
     ViewBag.Title = "Home Page";
 }
 
-<form class="form-horizontal" style="width:500px;">
+<form class="form-horizontal" style="width:500px;" ng-app="MemberApp" ng-controller="MemberController">
     <div class="form-group" style="text-align:center;">
         <h4>Create a new account.</h4>
     </div>
     <div class="form-group">
         <label class="col-md-2 control-label">Firstname</label>
         <div class="col-md-10">
-            <input type="text" class="form-control" />
+            <input type="hidden" class="form-control" ng-model="member.Id" />
+            <input type="text" class="form-control" ng-model="member.Firstname" />
         </div>
     </div>
     <div class="form-group">
         <label class="col-md-2 control-label">Lastname</label>
         <div class="col-md-10">
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" ng-model="member.Lastname" />
         </div>
     </div>
     <div class="form-group">
         <label class="col-md-2 control-label">Age</label>
         <div class="col-md-10">
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" ng-model="member.Age" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Gender</label>
+        <div class="col-md-10">
+            <select class="form-control" ng-model="member.Gender">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12" style="text-align:center;">
+            <label class="control-label" style="color:green;">{{success}}</label>
+            <label class="control-label" style="color:red;">{{error}}</label>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-success pull-right" value="Register" />
+            <input type="submit" class="btn btn-success pull-right" value="Register" ng-click="Create()" />
         </div>
     </div>
-
 </form>
+@section Scripts {
+    <script src="~/Scripts/Controllers/MemberController.js"></script>
+    <script src="~/Scripts/Modules/MemberApp.js"></script>
+}

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace AngularJS__Member_Registration
+namespace AngularJS__Member_Registration.App_Start
 {
     public class RouteConfig
     {

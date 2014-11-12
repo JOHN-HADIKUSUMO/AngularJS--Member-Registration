@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace AngularJS__Member_Registration
+namespace AngularJS__Member_Registration.App_Start
 {
     public class BundleConfig
     {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(AngularJS__Member_Registration.Startup))]
-namespace AngularJS__Member_Registration
+[assembly: OwinStartupAttribute(typeof(AngularJS__Member_Registration.App_Start.Startup))]
+namespace AngularJS__Member_Registration.App_Start
 {
     public partial class Startup
     {
