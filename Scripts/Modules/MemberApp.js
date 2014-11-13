@@ -1,4 +1,5 @@
 ﻿(function () {
     var memberapp = angular.module("MemberApp", []);
-    memberapp.controller("MemberController", ["$scope","$http",MemberController]);
+    memberapp.service('MemberService',MemberService);
+    memberapp.controller("MemberController", ["$scope","$http","MemberService",MemberController]);
 }());

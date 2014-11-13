@@ -1,19 +1,35 @@
-﻿var MemberController = function ($scope, $http) {
+﻿var MemberController = function ($scope, $http, MemberService) {
+    var resetSuccess = function () {
+        $scope.success = '';
+    };
 
-    var onCreateSuccess = function (data, status, headers, config)
-    {
+    var resetError = function () {
+        $scope.error = '';
+    };
+
+    var resetMember = function () {
+        $scope.member = { Id: 0, Firstname: '', Lastname: '', Age: null, Gender: true };
+    };
+
+    var onCreateSuccess = function (data, status, headers, config) {
+        resetMember();
+        resetError();
         $scope.success = 'The information has been saved.';
-        $scope.member = { Id: 0, Firstname: '', Lastname: '', Age: null, Gender: 0 };
     };
 
     var onCreateFail = function (data, status, headers, config) {
+        resetSuccess();
         $scope.error = JSON.stringify(data);
     };
 
-    $scope.member = { Id: 0, Firstname: '', Lastname: '', Age: null, Gender: 0 };
-    $scope.error = '';
-    $scope.success = '';
+    $scope.options = [{ key: true, value: 'Male' }, { key: false, value: 'Female' }]
+
+    resetMember();
+    resetSuccess();
+    resetError();
+
     $scope.Create = function () {
+        
         if ($scope.member.Firstname == '') {
             $scope.error = 'Firstname must be supplied.';
         }
@@ -30,7 +46,7 @@
             $scope.error = 'Age must between 18 and 50 years old.';
         }
         else {
-            $http.post('/REST/MEMBERS/CREATE', $scope.member).success(onCreateSuccess).error(onCreateFail);
+            MemberService.Create($scope.member, onCreateSuccess, onCreateFail);
         };
     };
 

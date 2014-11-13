@@ -28,9 +28,7 @@
     <div class="form-group">
         <label class="col-md-2 control-label">Gender</label>
         <div class="col-md-10">
-            <select class="form-control" ng-model="member.Gender">
-                <option value="0">Male</option>
-                <option value="1">Female</option>
+            <select class="form-control" ng-model="member.Gender" ng-options="option.key as option.value for option in options">
             </select>
         </div>
     </div>
@@ -47,6 +45,7 @@
     </div>
 </form>
 @section Scripts {
+    <script src="~/Scripts/Services/MemberService.js"></script>
     <script src="~/Scripts/Controllers/MemberController.js"></script>
     <script src="~/Scripts/Modules/MemberApp.js"></script>
 }
