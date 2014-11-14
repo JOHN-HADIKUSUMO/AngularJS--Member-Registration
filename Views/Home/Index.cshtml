@@ -2,50 +2,73 @@
     ViewBag.Title = "My AngularJS";
 }
 
-<form class="form-horizontal" style="width:500px;" ng-app="MemberApp" ng-controller="MemberController">
-    <div class="form-group" style="text-align:center;">
-        <h4>Member Registration</h4>
-    </div>
-    <div class="form-group">
-        <label class="col-md-2 control-label">Firstname</label>
-        <div class="col-md-10">
-            <input type="hidden" class="form-control" ng-model="member.Id" />
-            <input type="text" class="form-control" ng-model="member.Firstname" />
+<div class="row">
+    <div class="col-md-12">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                Membership
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/Home/Index">Registration</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/Home/Browse">Browse</a></li>
+            </ul>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-md-2 control-label">Lastname</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control" ng-model="member.Lastname" />
+</div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="text-align:center;">
+            <form class="form-horizontal" ng-app="MemberApp" ng-controller="MemberController" style="margin: 0px auto;">
+                <div class="form-group">
+                    <h2>Member Registration</h2>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Firstname</label>
+                    <div class="col-md-10">
+                        <input type="hidden" class="form-control" ng-model="member.Id" />
+                        <input type="text" class="form-control" ng-model="member.Firstname" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Lastname</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" ng-model="member.Lastname" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Age</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" ng-model="member.Age" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Gender</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="member.Gender" ng-options="option.key as option.value for option in options"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12" style="text-align:center;">
+                        <label class="control-label" style="color:green;">{{success}}</label>
+                        <label class="control-label" style="color:red;">{{error}}</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-success pull-right" value="Register" ng-click="Create()" />
+                    </div>
+                </div>
+            </form>
         </div>
+        <div class="col-md-3"></div>
     </div>
-    <div class="form-group">
-        <label class="col-md-2 control-label">Age</label>
-        <div class="col-md-10">
-            <input type="text" class="form-control" ng-model="member.Age" />
-        </div>
+    <div class="row">
+
     </div>
-    <div class="form-group">
-        <label class="col-md-2 control-label">Gender</label>
-        <div class="col-md-10">
-            <select class="form-control" ng-model="member.Gender" ng-options="option.key as option.value for option in options">
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-12" style="text-align:center;">
-            <label class="control-label" style="color:green;">{{success}}</label>
-            <label class="control-label" style="color:red;">{{error}}</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-success pull-right" value="Register" ng-click="Create()" />
-        </div>
-    </div>
-</form>
-@section Scripts {
-    <script src="~/Scripts/Services/MemberService.js"></script>
-    <script src="~/Scripts/Controllers/MemberController.js"></script>
-    <script src="~/Scripts/Modules/MemberApp.js"></script>
-}
+
+    @section Scripts {
+        <script src="~/Scripts/Services/MemberService.js"></script>
+        <script src="~/Scripts/Controllers/MemberController.js"></script>
+        <script src="~/Scripts/Modules/MemberApp.js"></script>
+    }
