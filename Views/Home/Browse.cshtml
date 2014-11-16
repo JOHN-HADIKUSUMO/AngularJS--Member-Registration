@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "My AngularJS";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                Membership
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/Home/Index">Registration</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/Home/Browse">Browse</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row" style="text-align:center;">
+    <h2>Browse Members</h2>
+</div>
+<div class="row" ng-app="MemberApp" ng-controller="BrowseMemberController">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>
+                        <strong>Firstname</strong>
+                    </td>
+                    <td>
+                        <strong>Lastname</strong>
+                    </td>
+                    <td>
+                        <strong>Age</strong>
+                    </td>
+                    <td>
+                        <strong>Gender</strong>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in memberlist">
+                    <td>
+                        {{item.Firstname}}
+                    </td>
+                    <td>
+                        {{item.Lastname}}
+                    </td>
+                    <td>
+                        {{item.Age}}
+                    </td>
+                    <td>
+                        {{toGender(item.Gender)}}
+                    </td>
+                    <td>
+                        <button class="btn btn-success" ng-click="edit(item.Id)">Edit</button>
+                        <button class="btn btn-warning" ng-click="delete(item.Id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/Services/MemberService.js"></script>
+    <script src="~/Scripts/Controllers/MemberController.js"></script>
+    <script src="~/Scripts/Controllers/BrowseMemberController.js"></script>
+    <script src="~/Scripts/Modules/MemberApp.js"></script>
+}

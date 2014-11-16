@@ -8,7 +8,7 @@
     <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Age" Type="int" Nullable="false" />
-    <Property Name="Gender" Type="bit" />
+    <Property Name="Gender" Type="tinyint" Nullable="false" />
   </EntityType>
   <EntityContainer Name="RiverClubModelStoreContainer">
     <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />

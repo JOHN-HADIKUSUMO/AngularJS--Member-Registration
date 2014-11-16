@@ -8,7 +8,7 @@
     };
 
     var resetMember = function () {
-        $scope.member = { Id: 0, Firstname: '', Lastname: '', Age: null, Gender: true };
+        $scope.member = { Id: 0, Firstname: '', Lastname: '', Age: null, Gender: 0 };
     };
 
     var onCreateSuccess = function (data, status, headers, config) {
@@ -22,7 +22,7 @@
         $scope.error = JSON.stringify(data);
     };
 
-    $scope.options = [{ key: true, value: 'Male' }, { key: false, value: 'Female' }]
+    $scope.options = [{ key: 0, value: 'Male' }, { key: 1, value: 'Female' }]
 
     resetMember();
     resetSuccess();

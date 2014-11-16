@@ -63,5 +63,6 @@ C:\Users\John\Documents\GitHub\AngularJS--Member-Registration\AngularJS--Member-
 C:\Users\John\Documents\GitHub\AngularJS--Member-Registration\AngularJS--Member-Registration\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\John\Documents\GitHub\AngularJS--Member-Registration\AngularJS--Member-Registration\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\John\Documents\GitHub\AngularJS--Member-Registration\AngularJS--Member-Registration\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\John\Documents\GitHub\AngularJS--Member-Registration\AngularJS--Member-Registration\obj\Debug\AngularJS--Member-Registration.csprojResolveAssemblyReference.cache
 C:\Users\John\Documents\GitHub\AngularJS--Member-Registration\AngularJS--Member-Registration\obj\Debug\AngularJS--Member-Registration.dll
 C:\Users\John\Documents\GitHub\AngularJS--Member-Registration\AngularJS--Member-Registration\obj\Debug\AngularJS--Member-Registration.pdb

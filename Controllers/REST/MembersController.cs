@@ -34,13 +34,19 @@ namespace AngularJS__Member_Registration.Controllers.REST
         [AcceptVerbs("GET")]
         [Route("READ/{id}")]
         [AllowAnonymous]
-        public bool Get(int id)
+        public Member Read(int id)
         {
-            bool status = true;
+            Member tempMember = this.members.Read(id);
+            return tempMember;
+        }
 
-
-
-            return status;
+        [HttpGet]
+        [AcceptVerbs("GET")]
+        [Route("READALL")]
+        [AllowAnonymous]
+        public List<Member> ReadAll()
+        {
+            return this.members.ReadAll().ToList<Member>();
         }
 
         [HttpPost]
@@ -68,5 +74,33 @@ namespace AngularJS__Member_Registration.Controllers.REST
 
             return status;
         }
+
+
+        [HttpPost]
+        [AcceptVerbs("POST")]
+        [Route("UPDATE")]
+        [AllowAnonymous]
+        public bool Update(Member model)
+        {
+            bool status = true;
+
+            try
+            {
+                Member tempMember = this.members.Read(model.Id);
+                tempMember.Firstname = model.Firstname;
+                tempMember.Lastname = model.Lastname;
+                tempMember.Age = model.Age;
+                tempMember.Gender = model.Gender;
+
+                this.members.Update(tempMember);
+            }
+            catch (Exception ex)
+            {
+                status = false;
+            }
+
+            return status;
+        }
+
     }
 }
